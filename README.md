@@ -75,12 +75,10 @@ Write an application that prints out the receipt details for these shopping bask
 4. Items to be excluded from the goods sales tax (10%) is included in a text file called `exclusions.txt` placed in the input folder.
 5. Imported items have the word `imported` in them.
   
-***
 
+6. By knowing where "at" is located, which is index 2, we can assume anything between index 0 (which would be qty) and index 2 ("at") is the item name (index 0+1 to index 2-1). The price would be located at index 3 (index 2+1).  
 
-By knowing where "at" is located, which is index 2, we can assume anything between index 0 (which would be qty) and index 2 ("at") is the item name (index 0+1 to index 2-1). The price would be located at index 3 (index 2+1).  
-
-So a hash is built with the following:
+7. So a hash is built with the following:
 > name: string  
 > qty: integer  
 > price: float  
@@ -91,7 +89,7 @@ So a hash is built with the following:
 > sales_tax: float  
 > total: float  
 
-`good` and `import` act as flags which signal whether or not good tax or import tax should be applied.  
+8. `taxable` and `import` act as flags which signal whether or not good tax or import tax should be applied.  
 
-`good_tax`, `import_tax`, `sales_tax`, are initially set to 0.0 and will be updated via `calculator`. `Total` is simply set to `qty` * `price` and will be updated by calculator.  
+`applicable_tax`, `import_tax`, `sales_tax`, are initially set to 0.0 and will be updated via `calculator`. `Total` is simply set to `qty` * `price` and will be updated by calculator.  
 
